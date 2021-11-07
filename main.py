@@ -58,7 +58,8 @@ def running_update():
     for button in buttons:
         # button.update()
         button.update(mouse_pos, game_state=state)
-    game_window.evaluate()
+    if frame_count%(FPS//10) == 0:
+        game_window.evaluate()
 
 def running_draw():
     window.fill(background)
@@ -138,10 +139,12 @@ clock = pygame.time.Clock()
 game_window = Game_window(window, 180, 100)
 buttons = make_buttons()
 state = 'setting'
+frame_count = 0
 
 
 running = True
 while running:
+    frame_count += 1
     mouse_pos = pygame.mouse.get_pos()
     if state == 'setting':
         get_events() 
