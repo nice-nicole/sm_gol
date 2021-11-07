@@ -58,6 +58,7 @@ def running_update():
     for button in buttons:
         # button.update()
         button.update(mouse_pos, game_state=state)
+    game_window.evaluate()
 
 def running_draw():
     window.fill(background)
