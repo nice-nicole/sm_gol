@@ -35,9 +35,9 @@ class Cell:
              if neighbour[0] < 0:
                  neighbour[0] += 30 
              if neighbour[1] < 0:
-                 neighbour[1] += 50 
-             if neighbour[1] > 49:
-                 neighbour[1] -= 50 
+                 neighbour[1] += 30 
+             if neighbour[1] > 29:
+                 neighbour[1] -= 30 
              if neighbour[0] > 29:
                  neighbour[0] -= 30
 
