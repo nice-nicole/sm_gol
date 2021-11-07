@@ -58,9 +58,9 @@ class Cell:
 
      def set_colour(self):
 
-        #  for cell in self.neighbours:
-        #      if cell.colour != (0, 0, 0):
-        #          colour = cell.colour
-        #      else:
-        colour = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
-        self.colour = colour 
+         for cell in self.neighbours:
+             if cell.colour != (0, 0, 0):
+                 colour = cell.colour
+             else:
+                colour = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+         self.colour = colour 
