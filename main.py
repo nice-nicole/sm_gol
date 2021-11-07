@@ -29,7 +29,7 @@ def update():
     game_window.update()
     for button in buttons:
         # button.update()
-        button.update(mouse_pos)
+        button.update(mouse_pos, game_state=state)
 
 def draw():
     window.fill(background)
@@ -57,7 +57,7 @@ def running_update():
     game_window.update()
     for button in buttons:
         # button.update()
-        button.update(mouse_pos)
+        button.update(mouse_pos, game_state=state)
 
 def running_draw():
     window.fill(background)
@@ -85,7 +85,7 @@ def paused_update():
     game_window.update()
     for button in buttons:
         # button.update()
-        button.update(mouse_pos)
+        button.update(mouse_pos, game_state=state)
 
 def paused_draw():
     window.fill(background)
@@ -115,9 +115,9 @@ def click_cell(pos):
 
 def make_buttons():
     buttons = []
-    buttons.append(Button(window, width//5-50, 50, 100, 20, text = 'RUN', colour = (28, 111, 51), hover_colour = (92, 232, 77), function=run_game))
-    buttons.append(Button(window, width//2-50, 50, 100, 20, text = 'PAUSE', colour = (18, 104, 135), hover_colour = (140, 180, 245), function= pause_game))
-    buttons.append(Button(window, width//1.2-50, 50, 100, 20, text = 'RESET', colour = (117, 14, 14), hover_colour = (237, 66, 75), function = reset_grid))
+    buttons.append(Button(window, width//2-50, 50, 100, 20, text = 'RUN', colour = (28, 111, 51), hover_colour = (92, 232, 77), function=run_game, state='setting'))
+    buttons.append(Button(window, width//2-50, 50, 100, 20, text = 'PAUSE', colour = (18, 104, 135), hover_colour = (140, 180, 245), function= pause_game, state='running'))
+    buttons.append(Button(window, width//2-50, 50, 100, 20, text = 'RESET', colour = (117, 14, 14), hover_colour = (237, 66, 75), function = reset_grid, state='paused'))
     return buttons
 
 def run_game():
