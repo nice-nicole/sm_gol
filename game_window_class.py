@@ -60,6 +60,12 @@ class Game_window():
                 else:
                     if cell.alive_neighbours == 3:
                         new_grid[yidx][xidx].alive = True
+
+            for yidx, row in enumerate(self.grid):
+                for xidx, cell in enumerate(row):
+                    if cell.alive:
+                        new_grid[yidx][xidx].set_colour()
+
         self.grid = new_grid
 
 
