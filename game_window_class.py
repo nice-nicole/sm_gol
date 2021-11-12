@@ -55,8 +55,6 @@ class Game_window():
                         new_grid[yidx][xidx].alive = False
                     if cell.alive_neighbours == 2 or cell.alive_neighbours == 3:
                         new_grid[yidx][xidx].alive = True
-                # if cell.alive_neighbours == 3 and not cell.alive :
-                #     new_grid[yidx][xidx].alive = True
                 else:
                     if cell.alive_neighbours == 3:
                         new_grid[yidx][xidx].alive = True
