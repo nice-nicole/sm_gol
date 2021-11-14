@@ -12,6 +12,7 @@ class Cell:
          #declare a list/array of neighbours
          self.neighbours = []
          self.alive_neighbours = 0
+         self.colour = (0, 0, 0)
 
      def update(self):
          self.rect.topleft = (self.grid_x*20, self.grid_y*20)
@@ -20,7 +21,7 @@ class Cell:
         #         self.alive_neighbours += 1
      def draw(self):
          if self.alive:
-             self.image.fill((0,0,0))
+             self.image.fill(self.colour)
          else:
              self.image.fill((0, 0, 0))
              pygame.draw.rect(self.image, (255, 255, 255), (1, 1, 18, 18))
@@ -54,3 +55,12 @@ class Cell:
                  count += 1
          self.alive_neighbours = count
          print(count)
+
+     def set_colour(self):
+
+         for cell in self.neighbours:
+             if cell.colour != (0, 0, 0):
+                 colour = cell.colour
+             else:
+                colour = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
+         self.colour = colour 
